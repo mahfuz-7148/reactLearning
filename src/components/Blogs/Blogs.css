@@ -1,0 +1,40 @@
+/* Center the content inside .container */
+.container {
+    display: flex;          
+    justify-content: center; 
+    align-items: center;   
+           
+  }
+  .blogs {
+    font-size: xx-large;
+    color: rgb(218, 20, 113);
+    padding-right: 50px;
+}
+
+  /* Button styles */
+  button {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    padding: 0 16px; /* Adjust padding for horizontal space */
+    margin: 0;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
