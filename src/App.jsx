@@ -1,9 +1,13 @@
 import Home from './components/Home/Home'
 import Blogs from './components/Blogs/Blogs'
+import Nav from "./components/Nav/Nav"
 import ExplorerData from './components/ExploreData/ExplorerData'
+
 function App() {
   return(
     <div>
+
+      <Nav></Nav>
       <Home></Home>
       <Blogs></Blogs>
       <ExplorerData name = 'mahfuz' age = '25' profession = 'full stack developer'></ExplorerData>
