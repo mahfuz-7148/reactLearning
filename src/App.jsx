@@ -1,7 +1,7 @@
 import Home from './components/Home/Home'
 import Blogs from './components/Blogs/Blogs'
 import Nav from "./components/Nav/Nav"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import Products from './components/Products/Products'
 // import ExplorerData from './components/ExploreData/ExplorerData'
 
@@ -29,16 +29,26 @@ function App() {
     marginTop: '20px'
   }
 
-  const [price, setPrice] = useState(10)
+  // const [price, setPrice] = useState(10)
 
-  const incrementClick = () => {
-    const updatePrice = price + 2
-    setPrice(updatePrice)
-  }
-  const decrementClick = () => {
-    const updatePrice = price - 2
-    setPrice(updatePrice)
-  }
+  // const incrementClick = () => {
+  //   const updatePrice = price + 2
+  //   setPrice(updatePrice)
+  // }
+  // const decrementClick = () => {
+  //   const updatePrice = price - 2
+  //   setPrice(updatePrice)
+  // }
+
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    alert(`alerting`)
+  }, [])
+
+  useEffect(() => {
+    alert(`count was changed`)
+  }, [count])
 
   return(
     <div>
@@ -59,7 +69,7 @@ function App() {
 
 
 
-      <button onClick={incrementClick} style={button}>Increment</button>
+      {/* <button onClick={incrementClick} style={button}>Increment</button>
       <button onClick={decrementClick} style={button}>Decrement</button>
       <h1 style={style}>
         Price One: {price}
@@ -70,7 +80,12 @@ function App() {
       <h3 style={style}>
         Price Three: {price}
       </h3>
-    
+     */}
+
+
+
+     <h1 style={style}>Steps: {count} </h1>
+     <button style={button} onClick={() => setCount(count + 1)}>Click</button>
   
     </div>
 
