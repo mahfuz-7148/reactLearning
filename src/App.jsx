@@ -1,8 +1,9 @@
-import Home from "./components/Home/Home";
-import Blogs from "./components/Blogs/Blogs";
-import Nav from "./components/Nav/Nav";
+// import Home from "./components/Home/Home";
+// import Blogs from "./components/Blogs/Blogs";
+// import Nav from "./components/Nav/Nav";
 import { useEffect, useState } from "react";
 import KeyData from "./components/KeyData/KeyData";
+import { data } from "autoprefixer";
 // import Products from './components/Products/Products'
 // import ExplorerData from './components/ExploreData/ExplorerData'
 
@@ -18,17 +19,17 @@ function App() {
   //   window.alert(`heey I'm here`)
   // }
 
-  const style = {
-    textAlign: "center",
-    fontSize: "60px",
-    color: "green",
-    padding: "30px",
-  };
+  // const style = {
+  //   textAlign: "center",
+  //   fontSize: "60px",
+  //   color: "green",
+  //   padding: "30px",
+  // };
 
-  const button = {
-    marginLeft: "850px",
-    marginTop: "20px",
-  };
+  // const button = {
+  //   marginLeft: "850px",
+  //   marginTop: "20px",
+  // };
 
   // const [price, setPrice] = useState(10)
 
@@ -61,9 +62,9 @@ function App() {
 
   return (
     <div>
-      <Nav></Nav>
-      <Home></Home>
-      <Blogs></Blogs>
+      {/* <Nav></Nav> */}
+      {/* <Home></Home>
+      <Blogs></Blogs> */}
       {/* {
         products.map(product => <Products 
         product = {product}
@@ -92,15 +93,20 @@ function App() {
      <button style={button} onClick={() => setCount(count + 1)}>Click</button>
    */}
 
-      <h1 style={style}> Data: {allData.length} </h1>
+     <div className="bg-slate-600 text-yellow-50 text-6xl text-center p-5">
+      <h1>Data {allData.length}</h1>
+     </div>
+
+     <div className="grid grid-cols-3 bg-slate-400 gap-8">
       {
         allData.map(keyData => 
-        <KeyData 
-        keyData = {keyData}
-        key={keyData.id}
-        ></KeyData>
-      )
+          <KeyData 
+          keyData = {keyData}
+          key={keyData.id}
+          ></KeyData>
+        )
       }
+      </div>
       
     </div>
   );
