@@ -1,12 +1,13 @@
-import Home from './components/Home/Home'
-import Blogs from './components/Blogs/Blogs'
-import Nav from "./components/Nav/Nav"
-import { useEffect, useState } from 'react'
+import Home from "./components/Home/Home";
+import Blogs from "./components/Blogs/Blogs";
+import Nav from "./components/Nav/Nav";
+import { useEffect, useState } from "react";
+import KeyData from "./components/KeyData/KeyData";
 // import Products from './components/Products/Products'
 // import ExplorerData from './components/ExploreData/ExplorerData'
 
 function App() {
-
+  
   // const products = [
   //   {name: 'monitor', price: 4000},
   //   {name: 'keyboard', price: 2000},
@@ -18,16 +19,16 @@ function App() {
   // }
 
   const style = {
-    textAlign: 'center',
-    fontSize: '60px',
-    color: 'green',
-    padding: '30px'
-  }
+    textAlign: "center",
+    fontSize: "60px",
+    color: "green",
+    padding: "30px",
+  };
 
   const button = {
-    marginLeft: '850px',
-    marginTop: '20px'
-  }
+    marginLeft: "850px",
+    marginTop: "20px",
+  };
 
   // const [price, setPrice] = useState(10)
 
@@ -40,19 +41,26 @@ function App() {
   //   setPrice(updatePrice)
   // }
 
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
+
+  // useEffect(() => {
+  //   alert(`alerting`)
+  // }, [])
+
+  // useEffect(() => {
+  //   alert(`count was changed`)
+  // }, [count])
+
+  const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    alert(`alerting`)
-  }, [])
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => setAllData(data));
+  }, [allData]);
 
-  useEffect(() => {
-    alert(`count was changed`)
-  }, [count])
-
-  return(
+  return (
     <div>
-
       <Nav></Nav>
       <Home></Home>
       <Blogs></Blogs>
@@ -67,8 +75,6 @@ function App() {
       <ExplorerData name = 'shanto' age = '24' profession = 'mern stack developer'></ExplorerData>
       <ExplorerData name = 'sarmin' age = '28' profession = 'html css developer'></ExplorerData> */}
 
-
-
       {/* <button onClick={incrementClick} style={button}>Increment</button>
       <button onClick={decrementClick} style={button}>Decrement</button>
       <h1 style={style}>
@@ -82,15 +88,22 @@ function App() {
       </h3>
      */}
 
-
-
-     <h1 style={style}>Steps: {count} </h1>
+      {/* <h1 style={style}>Steps: {count} </h1>
      <button style={button} onClick={() => setCount(count + 1)}>Click</button>
-  
-    </div>
+   */}
 
-    
-  )
+      <h1 style={style}> Data: {allData.length} </h1>
+      {
+        allData.map(keyData => 
+        <KeyData 
+        keyData = {keyData}
+        key={keyData.id}
+        ></KeyData>
+      )
+      }
+      
+    </div>
+  );
 }
 
-export default App
+export default App;
