@@ -1,14 +1,37 @@
 // import Home from "./components/Home/Home";
 // import Blogs from "./components/Blogs/Blogs";
 // import Nav from "./components/Nav/Nav";
-import { useEffect, useState } from "react";
-import KeyData from "./components/KeyData/KeyData";
-import { data } from "autoprefixer";
+// import { useEffect, useState } from "react";
+// import KeyData from "./components/KeyData/KeyData";
+// import { data } from "autoprefixer";
 // import Products from './components/Products/Products'
 // import ExplorerData from './components/ExploreData/ExplorerData'
+import { useState } from "react";
+import PersonItem from "./components/PersonItem/PersonItem";
+import Persons from "./components/Persons/Persons";
 
 function App() {
+
+  const [personnItem, setpersonnItem] = useState([])
   
+  const addpersons = (fkData) => {
+    const newItem = [...personnItem, fkData]
+    setpersonnItem(newItem)
+  }
+  
+  
+  return (
+    <div className="flex gap-x-6">
+      <Persons 
+      addpersons = {addpersons}
+      ></Persons>
+      <PersonItem 
+      personnItem = {personnItem}
+      ></PersonItem>
+    </div>
+  );
+}
+
   // const products = [
   //   {name: 'monitor', price: 4000},
   //   {name: 'keyboard', price: 2000},
@@ -52,16 +75,14 @@ function App() {
   //   alert(`count was changed`)
   // }, [count])
 
-  const [allData, setAllData] = useState([]);
+  // const [allData, setAllData] = useState([]);
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(data => setAllData(data));
-  }, [allData]);
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //   .then(res => res.json())
+  //   .then(data => setAllData(data));
+  // }, [allData]);
 
-  return (
-    <div>
       {/* <Nav></Nav> */}
       {/* <Home></Home>
       <Blogs></Blogs> */}
@@ -93,7 +114,7 @@ function App() {
      <button style={button} onClick={() => setCount(count + 1)}>Click</button>
    */}
 
-     <div className="bg-slate-600 text-yellow-50 text-6xl text-center p-5">
+     {/* <div className="bg-slate-600 text-yellow-50 text-6xl text-center p-5">
       <h1>Data {allData.length}</h1>
      </div>
 
@@ -106,10 +127,7 @@ function App() {
           ></KeyData>
         )
       }
-      </div>
+      </div> */}
       
-    </div>
-  );
-}
 
 export default App;
