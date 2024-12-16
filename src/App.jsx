@@ -1,3 +1,4 @@
+import React, { createContext } from "react";
 // import Home from "./components/Home/Home";
 // import Blogs from "./components/Blogs/Blogs";
 // import Nav from "./components/Nav/Nav";
@@ -7,27 +8,87 @@
 // import Products from './components/Products/Products'
 // import ExplorerData from './components/ExploreData/ExplorerData'
 import { useState } from "react";
-import PersonItem from "./components/PersonItem/PersonItem";
-import Persons from "./components/Persons/Persons";
+import ContextNav from "./components/ContextNav";
+import Context1, { Context1Provider } from "./Contexts/Context1";
+// import PersonItem from "./components/PersonItem/PersonItem";
+// import Persons from "./components/Persons/Persons";
+
+// export const countContext = createContext()
+// export const anotherContext = createContext()
 
 function App() {
 
-  const [personnItem, setpersonnItem] = useState([])
+  // const [personnItem, setpersonnItem] = useState([])
   
-  const addpersons = (fkData) => {
-    const newItem = [...personnItem, fkData]
-    setpersonnItem(newItem)
-  }
+  // const addpersons = (fkData) => {
+  //   const newItem = [...personnItem, fkData]
+  //   setpersonnItem(newItem)
+  // }
+
   
+  // const [isClick, setIsClick] = React.useState(false)
   
+  // const toggleButton = () => {
+  //   setIsClick(!isClick)
+  // }
+  
+  // const conditionStyle = {
+  //   color: isClick ? 'white' : 'black',
+  //   backgroundColor: isClick ? 'blue' : 'cyan'
+  // }
+
+  // const [count, setCount] = useState(0)
+  // const [another, setAnother] = useState(10)
+
   return (
-    <div className="flex gap-x-6">
-      <Persons 
-      addpersons = {addpersons}
-      ></Persons>
-      <PersonItem 
-      personnItem = {personnItem}
-      ></PersonItem>
+    // <div className="flex gap-x-6">
+    //   <Persons 
+    //   addpersons = {addpersons}
+    //   ></Persons>
+    //   <PersonItem 
+    //   personnItem = {personnItem}
+    //   ></PersonItem>
+    // </div>
+
+    // <div className="flex p-10 m-20 justify-center gap-6">
+
+    //   <button onClick={toggleButton} className="bg-green-700 text-white p-5 rounded-full">
+    //     {!isClick ? 'clicked' : 'not clicked'}
+    //   </button>
+
+    //   <div style={conditionStyle} className="bg-green-700 text-white p-5 rounded-full">
+    //      hey {!isClick ? 'clicked' : 'not clicked'} !!!
+    //   </div>
+
+    // </div>
+
+
+    // <div>
+    //    <anotherContext.Provider value={[another, setAnother]}>
+    //       <countContext.Provider value={[count, setCount]}>
+            
+    //         <ContextNav />
+
+    //         <div className="flex justify-center m-5 p-5">
+    //         <button onClick={()=> setCount(count + 1)} className="p-5 bg-green-600 text-yellow-200 rounded-3xl">Count 1 = {count} </button>
+    //         </div>
+    //       </countContext.Provider>
+    //    </anotherContext.Provider>
+    // </div>
+
+
+
+    <div>
+      <Context1Provider>
+        <ContextNav />
+
+        <div className="flex justify-center m-5 p-5">
+           {/* <button onClick={()=> setCount(count + 1)} className="p-5 bg-green-600 text-yellow-200 rounded-3xl">Count 1 = {count} </button> */}
+
+           <button className="p-5 bg-green-600 text-yellow-200 rounded-3xl">Count 1</button>
+        </div>
+        
+      </Context1Provider>
     </div>
   );
 }
